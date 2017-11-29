@@ -13,8 +13,8 @@ game = {
 function game:update(dt)
   ocean:update(dt)
   game:checkCollisions()
-  seamines:update(dt)
   sub:update(dt)
+  seamines:update(dt)
   game:updateScore(dt)
 end
 
@@ -50,17 +50,16 @@ function game:drawGameover()
   love.graphics.setColor(0,0,0, 100)
   love.graphics.rectangle("fill", 0,0, w, h)
   love.graphics.setColor(255,255,255)
-  love.graphics.printf("GAME OVER", 0, h/2, w, "center")
-  love.graphics.print("High Score: " .. math.floor(game.highscore), 10, 10)
-  love.graphics.printf("Press Enter to play again and esc to go back to menu", 0, h/3, w, "center")
+  love.graphics.printf("GAME OVER", 0, h/3, w, "center")
+  love.graphics.printf("High Score: " .. math.floor(game.highscore), 0, h/2.5, w, "center")
+  love.graphics.printf("Press Enter to play again and esc to go back to menu", 0, h/2, w, "center")
 end
 
 function game:drawUi()
   love.graphics.setColor(200, 0, 0)
   love.graphics.print("High Score: " .. math.floor(game.highscore), 10, 10)
   love.graphics.print("Score: " .. math.floor(game.score), 10, 30)
-  -- love.graphics.print("Seamines: " .. table.getn(seamines), 10, 50)
-  -- love.graphics.print("Bubbles: " .. table.getn(bubbles), 10, 70)
+  -- love.graphics.print("Seamines: " .. sub.xVelocity, 10, 50)
   -- love.graphics.print("SubBubbles: " .. table.getn(subBubbles), 10, 90)
   -- love.graphics.print("SubBubbleTimer: " .. subBubbleTimer, 10, 110)
 end
@@ -84,9 +83,11 @@ end
 
 function game:checkCollisions()
   for index, seamine in ipairs(seamines) do
-    if (intersects(sub, seamine) or intersects(seamine, sub)) then
-      sub.explode()
-      game.state = "gameOver"
+    for index, segment in ipairs(sub.segments) do
+      if (intersects(segment, seamine) or intersects(seamine, segment)) then
+        sub.explode()
+        game.state = "gameOver"
+      end
     end
   end
 end

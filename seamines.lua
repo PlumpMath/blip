@@ -15,7 +15,7 @@ end
 
 function seamines:draw()
   for index, seamine in ipairs(seamines) do
-    love.graphics.setColor(100, 100, 100, seamine.alpha)
+    love.graphics.setColor(50, 50, 50, seamine.alpha)
     love.graphics.rectangle('fill', seamine.x, seamine.y, seamine.w, seamine.h)
     love.graphics.rectangle('fill', seamine.x + 6, seamine.y, seamine.w / 3, seamine.h * 1.4)
     love.graphics.rectangle('fill', seamine.x + 6, seamine.y, seamine.w / 3, -(seamine.h * 0.4))

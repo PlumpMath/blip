@@ -13,7 +13,7 @@ function ocean:update(dt)
 end
 
 function ocean:draw_below()
-  love.graphics.setColor(0, 0, 100)
+  love.graphics.setColor(0, 0, 150)
   love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
 
   bubbles:draw_below()

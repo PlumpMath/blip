@@ -12,8 +12,8 @@ ping = {
 
 function ping:new()
   if ping.active == false and ping.timer >= 0 then
-    ping.x = sub.x
-    ping.y = sub.y
+    ping.x = sub.x + (sub.w / 2)
+    ping.y = sub.y + (sub.h / 2)
     ping.strength = ping.maxStrength
     ping.active = true
     ping.timer = 3
