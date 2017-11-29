@@ -3,11 +3,7 @@ require("sub")
 function love.keypressed(key)
   -- Anywhere
   if key == "escape" then
-    if game.state == "menu" then
-      love.event.push("quit")
-    else
-      game.state = "menu"
-    end
+    love.event.push("quit")
   end
 
   -- Menu
@@ -37,6 +33,8 @@ function love.keypressed(key)
     end
   elseif game.state == "gameOver" then
     if key == "return" then
+      ocean:reset()
+      sub:reset()
       game:new()
     end
   end

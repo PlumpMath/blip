@@ -1,9 +1,13 @@
-require("game")
-
 menu = {}
+ocean:reset()
+sub:reset()
 
 function menu:draw()
+  love.graphics.setColor(0, 0, 0, 150)
+  love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+
   love.graphics.setColor(200, 0, 0)
+  love.graphics.print("BLIP", 10, 0)
   love.graphics.print("\"Incoming seamines captain! We can use sonar to detect those mines.\"", 10, 10)
   love.graphics.print("\"Oh.. I forgot to mention. We messed up the wiring so each time you send out a we will go a little bit faster each time\"", 10, 30)
   -- love.graphics.print("Good luck captain", 10, 30)

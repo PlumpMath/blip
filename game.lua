@@ -1,13 +1,17 @@
 require("ocean")
 require("sub")
 require("seamines")
+require("menu")
 
 game = {
   state = "menu",
   fullscreen = false,
   score = 0,
   highscore = 0,
-  timer = 0
+  timer = 0,
+  difficultyTime = 0.1,
+  difficultySpeed = 40,
+  difficultySpacing = 150
 }
 
 function game:update(dt)
@@ -32,6 +36,8 @@ function game:draw()
     game:drawPaused()
   elseif game.state == "gameOver" then
     game:drawGameover()
+  elseif game.state == "menu" then
+    menu:draw()
   end
 end
 
@@ -52,7 +58,7 @@ function game:drawGameover()
   love.graphics.setColor(255,255,255)
   love.graphics.printf("GAME OVER", 0, h/3, w, "center")
   love.graphics.printf("High Score: " .. math.floor(game.highscore), 0, h/2.5, w, "center")
-  love.graphics.printf("Press Enter to play again and esc to go back to menu", 0, h/2, w, "center")
+  love.graphics.printf("Press Enter to play again and Esc to quit", 0, h/2, w, "center")
 end
 
 function game:drawUi()
@@ -69,8 +75,6 @@ function game:new()
   game.score = 0
   game.state = "playing"
 
-  ocean:reset()
-  sub:reset()
   seamines:reset()
 end
 

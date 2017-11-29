@@ -20,10 +20,12 @@ function sub:update(dt)
 
   sub.xVelocity = sub.xVelocity * (1 - math.min(dt * sub.friction, 1))
 
-  if love.keyboard.isDown("left", "a") and sub.xVelocity > -sub.maxSpeed then
-    sub.xVelocity = sub.xVelocity - sub.acc * dt
-  elseif love.keyboard.isDown("right", "d") and sub.xVelocity < sub.maxSpeed then
-    sub.xVelocity = sub.xVelocity + sub.acc * dt
+  if game.state == "playing" then
+    if love.keyboard.isDown("left", "a") and sub.xVelocity > -sub.maxSpeed then
+      sub.xVelocity = sub.xVelocity - sub.acc * dt
+    elseif love.keyboard.isDown("right", "d") and sub.xVelocity < sub.maxSpeed then
+      sub.xVelocity = sub.xVelocity + sub.acc * dt
+    end
   end
 
   sub.segments = {
