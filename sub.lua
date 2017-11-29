@@ -65,14 +65,8 @@ end
 
 function sub:draw()
   love.graphics.setColor(55, 250, 200)
-  -- love.graphics.rectangle('fill', sub.x, sub.y, sub.w, sub.h)
-  -- love.graphics.rectangle('fill', sub.x + 4, sub.y - 10, sub.w - 8, sub.h)
-  -- love.graphics.rectangle('fill', sub.x + 4, sub.y + 10, sub.w - 8, sub.h)
-  -- love.graphics.rectangle('fill', sub.x + 8, sub.y - 20, sub.w - 16, sub.h)
-  -- love.graphics.rectangle('fill', sub.x + 8, sub.y + 20, sub.w - 16, sub.h)
-
   for index, segment in ipairs(sub.segments) do
-    love.graphics.rectangle('fill', segment.x, segment.y, segment.w, segment.h)
+    love.graphics.rectangle("fill", segment.x, segment.y, segment.w, segment.h)
   end
 
   if ping.active then
@@ -85,7 +79,7 @@ end
 function subBubbles:draw()
   for index, bubble in ipairs(subBubbles) do
     love.graphics.setColor(200, 200, 255, 100)
-    love.graphics.rectangle('fill', bubble.x, bubble.y, bubble.w, bubble.h)
+    love.graphics.rectangle("fill", bubble.x, bubble.y, bubble.w, bubble.h)
   end
 end
 
@@ -139,6 +133,7 @@ function sub:reset()
   }
 
   ping:reset()
+  explosion:reset()
   subBubbles:reset()
 end
 

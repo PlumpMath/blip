@@ -59,9 +59,6 @@ function game:drawUi()
   love.graphics.setColor(200, 0, 0)
   love.graphics.print("High Score: " .. math.floor(game.highscore), 10, 10)
   love.graphics.print("Score: " .. math.floor(game.score), 10, 30)
-  -- love.graphics.print("Seamines: " .. sub.xVelocity, 10, 50)
-  -- love.graphics.print("SubBubbles: " .. table.getn(subBubbles), 10, 90)
-  -- love.graphics.print("SubBubbleTimer: " .. subBubbleTimer, 10, 110)
 end
 
 function game:new()

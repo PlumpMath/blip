@@ -14,7 +14,7 @@ end
 
 function ocean:draw_below()
   love.graphics.setColor(0, 0, 150)
-  love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+  love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
 
   bubbles:draw_below()
 end
@@ -38,7 +38,7 @@ function bubbles:draw_below()
   for index, bubble in ipairs(bubbles) do
     if bubble.above == 0 then
       love.graphics.setColor(200, 200, 255, 100)
-      love.graphics.rectangle('fill', bubble.x, bubble.y, bubble.w, bubble.h)
+      love.graphics.rectangle("fill", bubble.x, bubble.y, bubble.w, bubble.h)
     end
   end
 end
@@ -47,7 +47,7 @@ function bubbles:draw_above()
   for index, bubble in ipairs(bubbles) do
     if bubble.above == 1 then
       love.graphics.setColor(200, 200, 255, 100)
-      love.graphics.rectangle('fill', bubble.x, bubble.y, bubble.w, bubble.h)
+      love.graphics.rectangle("fill", bubble.x, bubble.y, bubble.w, bubble.h)
     end
   end
 end

@@ -38,7 +38,7 @@ end
 
 function ping:draw()
   love.graphics.setColor(155, 155, 155, ping.strength /4)
-  love.graphics.circle('fill', ping.x, ping.y, ping.r)
+  love.graphics.circle("fill", ping.x, ping.y, ping.r)
 end
 
 function ping:reset()
