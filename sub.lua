@@ -16,9 +16,22 @@ function sub:explode()
 end
 
 function sub:update(dt)
-  sub.x = sub.x + sub.xVelocity
+  if sub.x < 0 then
+    sub.x = 0
+  elseif sub.x > love.graphics.getWidth() then
+    sub.x = love.graphics.getWidth()
+  else
+  end
 
   sub.xVelocity = sub.xVelocity * (1 - math.min(dt * sub.friction, 1))
+
+  if sub.x <= 0 then
+    sub.xVelocity = 5
+  elseif sub.x >= love.graphics.getWidth() then
+    sub.xVelocity = -5
+  end
+
+  sub.x = sub.x + sub.xVelocity
 
   if game.state == "playing" then
     if love.keyboard.isDown("left", "a") and sub.xVelocity > -sub.maxSpeed then

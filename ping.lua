@@ -17,7 +17,9 @@ function ping:new()
     ping.strength = ping.maxStrength
     ping.active = true
     ping.timer = 3
-    game.difficultySpeed = game.difficultySpeed + 5
+    game.difficultySpeed = game.difficultySpeed + 10
+
+    pingSound:play()
   end
 end
 

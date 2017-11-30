@@ -14,6 +14,9 @@ function explosion:new()
   explosion.y = sub.y
   explosion.strength = explosion.maxStrength
   explosion.active = true
+
+  playingMusic:stop()
+  gameOverSound:play()
 end
 
 function explosion:update(dt)
